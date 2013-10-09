@@ -16,7 +16,7 @@ class adminjoin implements Plugin{
 		}
 		
 		public function init(){
-				$this->api->addHandler("player.join", array($this, "handle"), 15);
+				$this->api->addHandler("player.spawn", array($this, "handle"), 15);
 				$this->config = new Config($this->api->plugin->configPath($this)."config.yml", CONFIG_YAML, array(
 				"Owner" => "<Owner Username>",
 				));
@@ -29,7 +29,7 @@ class adminjoin implements Plugin{
 		public function handle($data, $event){
 				$username = $data->username;
 				switch($event){
-						case "player.join";
+						case "player.spawn";
 								if($username === $this->owner){
 										$permission = $this->api->dhandle("get.player.permission", $username);
 										if($permission === "ADMIN"){
