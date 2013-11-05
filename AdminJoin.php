@@ -3,7 +3,7 @@
 /*
 __Pocketmine Plugin__
 name=AdminJoin
-version=1.1.1
+version=1.1.2
 author=ZacHack
 class=adminjoin
 apiversion=10
