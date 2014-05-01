@@ -24,8 +24,7 @@ class MainClass extends PluginBase implements Listener{
 	}
 	
 	public function onJoin(PlayerJoinEvent $event){
-		console(TextFormat::YELLOW . 
-		"its working!");
+		console(TextFormat::YELLOW . "its working!");
 		Server::getInstance()->broadcastMessage("its working!");
 		$player = $event->getPlayer();
 		if(isOp($player) == true){
