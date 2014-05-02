@@ -13,9 +13,10 @@ use pocketmine\permission\ServerOperator;
 class MainClass extends PluginBase implements Listener{
 
 	public function onLoad(){
-		console(TextFormat::GREEN . "AdminJoin by §aZacHack has been loaded!");
+		console(TextFormat::GREEN . "AdminJoin by ZacHack has been loaded!");
 	}
 	public function onEnable(){
+		$this->getserver()->getPluginManager()->registerEvents($this, $this);
 	}
 	
 	public function onDisable(){
