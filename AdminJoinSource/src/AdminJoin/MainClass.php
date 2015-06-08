@@ -1,13 +1,9 @@
 <?php
-
 namespace AdminJoin;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\Player;
-use pocketmine\Server;
-use pocketmine\permission\ServerOperator;
 
 class MainClass extends PluginBase implements Listener{
 
@@ -15,14 +11,15 @@ class MainClass extends PluginBase implements Listener{
 		$this->getserver()->getPluginManager()->registerEvents($this, $this);
 	}
 	
-	public function onDisable(){
-	}
-	
+	/**
+	 * @param PlayerJoinEvent $event
+	 * 
+	 * @priority MONITOR
+	 * @ignoreCancelled true
+	 */
 	public function onJoin(PlayerJoinEvent $event){
-		$player = $event->getPlayer();
-		$name = $player->getDisplayName();
-		if($player->isOp()){
-			Server::getInstance()->broadcastMessage("Server Op: ".$name."");
+		if($event->getPlayer()->isOp()){
+			$this->getServer()->broadcastMessage("Server Op: " . $event->getPlayer()->getDisplayName());
 		}
 	}
 }
